@@ -1,0 +1,12 @@
+{
+  "_fv": 73,
+  "_type": "gamerule",
+  "definition": {
+    "type": "Number",
+    "displayName": "Pet tameable health percentage",
+    "description": "Defines maximum health percentage of mob to be tamed.",
+    "category": "MISC",
+    "defaultValueLogic": false,
+    "defaultValueNumber": 100
+  }
+}

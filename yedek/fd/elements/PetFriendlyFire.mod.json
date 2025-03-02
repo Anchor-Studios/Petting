@@ -1,0 +1,12 @@
+{
+  "_fv": 73,
+  "_type": "gamerule",
+  "definition": {
+    "type": "Logic",
+    "displayName": "Pet friendly fire",
+    "description": "If true, pets of same player can get angry to each other.",
+    "category": "MOBS",
+    "defaultValueLogic": false,
+    "defaultValueNumber": 0
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "gamerule.petTameableHealthPercentage.description": "Defines maximum health percentage of mob to be tamed.",
+  "gamerule.petFriendlyFire": "Pet friendly fire",
+  "gamerule.petFriendlyFire.description": "If true, pets of same player can get angry to each other.",
+  "item.petting.golden_wheat": "Golden Wheat",
+  "gamerule.petTameableHealthPercentage": "Pet tameable health percentage"
+}
