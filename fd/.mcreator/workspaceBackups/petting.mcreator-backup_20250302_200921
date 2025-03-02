@@ -169,7 +169,7 @@
     {
       "name": "NPSProjectileProjectileHitsLivingEntity",
       "type": "procedure",
-      "compiles": false,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "nps_projectile_projectile_hits_living_entity",
       "metadata": {
@@ -186,43 +186,8 @@
             "type": "entity"
           },
           {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
             "name": "world",
             "type": "world"
-          }
-        ]
-      },
-      "path": "~/Items"
-    },
-    {
-      "name": "WoodenPettingSphereRangedItemShootsProjectile",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "wooden_petting_sphere_ranged_item_shoots_projectile",
-      "metadata": {
-        "files": [
-          "src/main/java/net/petting/procedures/WoodenPettingSphereRangedItemShootsProjectileProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "itemstack",
-            "type": "itemstack"
           }
         ]
       },
@@ -298,66 +263,15 @@
       "path": "~/Attack"
     },
     {
-      "name": "WoodenPettingSphereRecipe",
-      "type": "recipe",
+      "name": "GoldenWheat",
+      "type": "item",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "wooden_petting_sphere_recipe",
+      "registry_name": "golden_wheat",
       "metadata": {
         "files": [
-          "src/main/resources/data/petting/recipe/wooden_petting_sphere_recipe.json"
-        ]
-      },
-      "path": "~/Items"
-    },
-    {
-      "name": "StonePettingSphereRecipe",
-      "type": "recipe",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "stone_petting_sphere_recipe",
-      "metadata": {
-        "files": [
-          "src/main/resources/data/petting/recipe/stone_petting_sphere_recipe.json"
-        ]
-      },
-      "path": "~/Items"
-    },
-    {
-      "name": "GoldenPettingSphereRecipe",
-      "type": "recipe",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "golden_petting_sphere_recipe",
-      "metadata": {
-        "files": [
-          "src/main/resources/data/petting/recipe/golden_petting_sphere_recipe.json"
-        ]
-      },
-      "path": "~/Items"
-    },
-    {
-      "name": "DiamondPettingSphereRecipe",
-      "type": "recipe",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "diamond_petting_sphere_recipe",
-      "metadata": {
-        "files": [
-          "src/main/resources/data/petting/recipe/diamond_petting_sphere_recipe.json"
-        ]
-      },
-      "path": "~/Items"
-    },
-    {
-      "name": "NetheritePettingSphereRecipe",
-      "type": "recipe",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "netherite_petting_sphere_recipe",
-      "metadata": {
-        "files": [
-          "src/main/resources/data/petting/recipe/netherite_petting_sphere_recipe.json"
+          "src/main/resources/assets/petting/models/item/golden_wheat.json",
+          "src/main/java/net/petting/item/GoldenWheatItem.java"
         ]
       },
       "path": "~/Items"
@@ -369,10 +283,11 @@
   "tab_element_order": {},
   "language_map": {
     "en_us": {
-      "gamerule.petTameableHealthPercentage": "Pet tameable health percentage",
       "gamerule.petTameableHealthPercentage.description": "Defines maximum health percentage of mob to be tamed.",
       "gamerule.petFriendlyFire": "Pet friendly fire",
-      "gamerule.petFriendlyFire.description": "If true, pets of same player can get angry to each other."
+      "gamerule.petFriendlyFire.description": "If true, pets of same player can get angry to each other.",
+      "item.petting.golden_wheat": "Golden Wheat",
+      "gamerule.petTameableHealthPercentage": "Pet tameable health percentage"
     }
   },
   "foldersRoot": {
@@ -403,7 +318,7 @@
   "workspaceSettings": {
     "modid": "petting",
     "modName": "Petting",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "description": "Pet mobs and have them become protective companions that follow you, offering support and assistance during your adventures.",
     "author": "Anchor Studios",
     "websiteURL": "https://www.anchorstudios.site/wiki/petting",

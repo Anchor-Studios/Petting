@@ -169,7 +169,7 @@
     {
       "name": "NPSProjectileProjectileHitsLivingEntity",
       "type": "procedure",
-      "compiles": false,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "nps_projectile_projectile_hits_living_entity",
       "metadata": {
@@ -186,43 +186,8 @@
             "type": "entity"
           },
           {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
             "name": "world",
             "type": "world"
-          }
-        ]
-      },
-      "path": "~/Items"
-    },
-    {
-      "name": "WoodenPettingSphereRangedItemShootsProjectile",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "wooden_petting_sphere_ranged_item_shoots_projectile",
-      "metadata": {
-        "files": [
-          "src/main/java/net/petting/procedures/WoodenPettingSphereRangedItemShootsProjectileProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "itemstack",
-            "type": "itemstack"
           }
         ]
       },
@@ -353,7 +318,7 @@
   "workspaceSettings": {
     "modid": "petting",
     "modName": "Petting",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "description": "Pet mobs and have them become protective companions that follow you, offering support and assistance during your adventures.",
     "author": "Anchor Studios",
     "websiteURL": "https://www.anchorstudios.site/wiki/petting",
