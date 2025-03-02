@@ -279,6 +279,169 @@
         ]
       },
       "path": "~/Items"
+    },
+    {
+      "name": "NameVisibleToggle",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "name_visible_toggle",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/NameVisibleToggleProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "Petting",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "petting",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/command/PettingCommand.java"
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "DeathMessageToggle",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "death_message_toggle",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/DeathMessageToggleProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "WaitFDRightclick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wait_fd_rightclick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/WaitFDRightclickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "WaitTDRightclick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wait_td_rightclick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/WaitTDRightclickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "WaitADRightclick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wait_ad_rightclick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/WaitADRightclickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "ChangeRightclick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "change_rightclick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/ChangeRightclickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Commands"
     }
   ],
   "variable_elements": [],
@@ -315,6 +478,10 @@
       },
       {
         "name": "Items",
+        "children": []
+      },
+      {
+        "name": "Commands",
         "children": []
       }
     ]
