@@ -47,7 +47,7 @@ public class NPSProjectileProjectileHitsLivingEntityProcedure {
 				if (entity instanceof TamableAnimal _toTame && sourceentity instanceof Player _owner)
 					_toTame.tame(_owner);
 			} else {
-				SourceTameEntityProcedure.execute(entity, sourceentity);
+				SourceTameEntityProcedure.execute(world, entity, sourceentity);
 			}
 			if (sphere.getItem() == (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem()) {
 				if (sourceentity instanceof LivingEntity _entity) {

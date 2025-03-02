@@ -28,7 +28,7 @@ public class ChangeRightclickProcedure {
 	private static void execute(@Nullable Event event, Entity entity, Entity sourceentity) {
 		if (entity == null || sourceentity == null)
 			return;
-		if (sourceentity.getPersistentData().getBoolean("tdwait") || sourceentity.getPersistentData().getBoolean("adwait") || sourceentity.getPersistentData().getBoolean("fdwait")) {
+		if (sourceentity.getPersistentData().getBoolean("tdwait") || sourceentity.getPersistentData().getBoolean("folwait") || sourceentity.getPersistentData().getBoolean("adwait") || sourceentity.getPersistentData().getBoolean("fdwait")) {
 			if (!((sourceentity.getStringUUID()).equals(entity instanceof LivingEntity _teamEnt && _teamEnt.level().getScoreboard().getPlayersTeam(_teamEnt instanceof Player _pl ? _pl.getGameProfile().getName() : _teamEnt.getStringUUID()) != null
 					? _teamEnt.level().getScoreboard().getPlayersTeam(_teamEnt instanceof Player _pl ? _pl.getGameProfile().getName() : _teamEnt.getStringUUID()).getName()
 					: ""))) {
@@ -39,6 +39,9 @@ public class ChangeRightclickProcedure {
 				}
 				if (sourceentity.getPersistentData().getBoolean("fdwait")) {
 					sourceentity.getPersistentData().putBoolean("fdwait", false);
+				}
+				if (sourceentity.getPersistentData().getBoolean("folwait")) {
+					sourceentity.getPersistentData().putBoolean("folwait", false);
 				}
 				if (sourceentity.getPersistentData().getBoolean("adwait")) {
 					sourceentity.getPersistentData().putBoolean("adwait", false);
@@ -53,6 +56,10 @@ public class ChangeRightclickProcedure {
 				if (sourceentity.getPersistentData().getBoolean("fdwait")) {
 					sourceentity.getPersistentData().putBoolean("fdwait", false);
 					entity.getPersistentData().putDouble("followdistance", (sourceentity.getPersistentData().getDouble("fdupdate")));
+				}
+				if (sourceentity.getPersistentData().getBoolean("folwait")) {
+					sourceentity.getPersistentData().putBoolean("folwait", false);
+					entity.getPersistentData().putBoolean("petfollow", (sourceentity.getPersistentData().getBoolean("folset")));
 				}
 				if (sourceentity.getPersistentData().getBoolean("adwait")) {
 					sourceentity.getPersistentData().putBoolean("adwait", false);

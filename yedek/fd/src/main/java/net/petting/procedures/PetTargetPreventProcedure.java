@@ -24,7 +24,7 @@ public class PetTargetPreventProcedure {
 	private static void execute(@Nullable Event event, Entity entity, Entity sourceentity) {
 		if (entity == null || sourceentity == null)
 			return;
-		if (!(sourceentity.getPersistentData().getString("pettarget")).equals(entity.getStringUUID())) {
+		if (sourceentity.getPersistentData().getBoolean("isTamed") && !(sourceentity.getPersistentData().getString("pettarget")).equals(entity.getStringUUID())) {
 			if (sourceentity instanceof Mob _entity) {
 				_entity.setTarget(null);
 			}

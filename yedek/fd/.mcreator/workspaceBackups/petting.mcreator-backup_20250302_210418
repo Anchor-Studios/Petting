@@ -61,6 +61,10 @@
           {
             "name": "sourceentity",
             "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -169,7 +173,7 @@
     {
       "name": "NPSProjectileProjectileHitsLivingEntity",
       "type": "procedure",
-      "compiles": false,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "nps_projectile_projectile_hits_living_entity",
       "metadata": {
@@ -186,43 +190,8 @@
             "type": "entity"
           },
           {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
             "name": "world",
             "type": "world"
-          }
-        ]
-      },
-      "path": "~/Items"
-    },
-    {
-      "name": "WoodenPettingSphereRangedItemShootsProjectile",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "wooden_petting_sphere_ranged_item_shoots_projectile",
-      "metadata": {
-        "files": [
-          "src/main/java/net/petting/procedures/WoodenPettingSphereRangedItemShootsProjectileProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "itemstack",
-            "type": "itemstack"
           }
         ]
       },
@@ -298,69 +267,181 @@
       "path": "~/Attack"
     },
     {
-      "name": "WoodenPettingSphereRecipe",
-      "type": "recipe",
+      "name": "GoldenWheat",
+      "type": "item",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "wooden_petting_sphere_recipe",
+      "registry_name": "golden_wheat",
       "metadata": {
         "files": [
-          "src/main/resources/data/petting/recipe/wooden_petting_sphere_recipe.json"
+          "src/main/resources/assets/petting/models/item/golden_wheat.json",
+          "src/main/java/net/petting/item/GoldenWheatItem.java"
         ]
       },
       "path": "~/Items"
     },
     {
-      "name": "StonePettingSphereRecipe",
-      "type": "recipe",
+      "name": "NameVisibleToggle",
+      "type": "procedure",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "stone_petting_sphere_recipe",
+      "registry_name": "name_visible_toggle",
       "metadata": {
         "files": [
-          "src/main/resources/data/petting/recipe/stone_petting_sphere_recipe.json"
+          "src/main/java/net/petting/procedures/NameVisibleToggleProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
         ]
       },
-      "path": "~/Items"
+      "path": "~/Commands"
     },
     {
-      "name": "GoldenPettingSphereRecipe",
-      "type": "recipe",
+      "name": "Petting",
+      "type": "command",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "golden_petting_sphere_recipe",
+      "registry_name": "petting",
       "metadata": {
         "files": [
-          "src/main/resources/data/petting/recipe/golden_petting_sphere_recipe.json"
+          "src/main/java/net/petting/command/PettingCommand.java"
         ]
       },
-      "path": "~/Items"
+      "path": "~/Commands"
     },
     {
-      "name": "DiamondPettingSphereRecipe",
-      "type": "recipe",
+      "name": "DeathMessageToggle",
+      "type": "procedure",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "diamond_petting_sphere_recipe",
+      "registry_name": "death_message_toggle",
       "metadata": {
         "files": [
-          "src/main/resources/data/petting/recipe/diamond_petting_sphere_recipe.json"
+          "src/main/java/net/petting/procedures/DeathMessageToggleProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
         ]
       },
-      "path": "~/Items"
+      "path": "~/Commands"
     },
     {
-      "name": "NetheritePettingSphereRecipe",
-      "type": "recipe",
+      "name": "WaitFDRightclick",
+      "type": "procedure",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "netherite_petting_sphere_recipe",
+      "registry_name": "wait_fd_rightclick",
       "metadata": {
         "files": [
-          "src/main/resources/data/petting/recipe/netherite_petting_sphere_recipe.json"
+          "src/main/java/net/petting/procedures/WaitFDRightclickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
         ]
       },
-      "path": "~/Items"
+      "path": "~/Commands"
+    },
+    {
+      "name": "WaitTDRightclick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wait_td_rightclick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/WaitTDRightclickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "WaitADRightclick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wait_ad_rightclick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/WaitADRightclickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "ChangeRightclick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "change_rightclick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/ChangeRightclickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Commands"
     }
   ],
   "variable_elements": [],
@@ -369,10 +450,11 @@
   "tab_element_order": {},
   "language_map": {
     "en_us": {
-      "gamerule.petTameableHealthPercentage": "Pet tameable health percentage",
       "gamerule.petTameableHealthPercentage.description": "Defines maximum health percentage of mob to be tamed.",
       "gamerule.petFriendlyFire": "Pet friendly fire",
-      "gamerule.petFriendlyFire.description": "If true, pets of same player can get angry to each other."
+      "gamerule.petFriendlyFire.description": "If true, pets of same player can get angry to each other.",
+      "item.petting.golden_wheat": "Golden Wheat",
+      "gamerule.petTameableHealthPercentage": "Pet tameable health percentage"
     }
   },
   "foldersRoot": {
@@ -397,13 +479,17 @@
       {
         "name": "Items",
         "children": []
+      },
+      {
+        "name": "Commands",
+        "children": []
       }
     ]
   },
   "workspaceSettings": {
     "modid": "petting",
     "modName": "Petting",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "description": "Pet mobs and have them become protective companions that follow you, offering support and assistance during your adventures.",
     "author": "Anchor Studios",
     "websiteURL": "https://www.anchorstudios.site/wiki/petting",

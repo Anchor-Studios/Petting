@@ -61,6 +61,10 @@
           {
             "name": "sourceentity",
             "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -270,11 +274,247 @@
       "registry_name": "golden_wheat",
       "metadata": {
         "files": [
-          "src/main/java/net/petting/item/GoldenWheatItem.java",
-          "src/main/resources/assets/petting/models/item/golden_wheat.json"
+          "src/main/resources/assets/petting/models/item/golden_wheat.json",
+          "src/main/java/net/petting/item/GoldenWheatItem.java"
         ]
       },
       "path": "~/Items"
+    },
+    {
+      "name": "NameVisibleToggle",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "name_visible_toggle",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/NameVisibleToggleProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "Petting",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "petting",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/command/PettingCommand.java"
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "DeathMessageToggle",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "death_message_toggle",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/DeathMessageToggleProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "WaitFDRightclick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wait_fd_rightclick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/WaitFDRightclickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "WaitTDRightclick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wait_td_rightclick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/WaitTDRightclickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "WaitADRightclick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wait_ad_rightclick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/WaitADRightclickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "ChangeRightclick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "change_rightclick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/ChangeRightclickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "PetEffectPreventer",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pet_effect_preventer",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/PetEffectPreventerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/AttackPrevent"
+    },
+    {
+      "name": "ModfyRequestNuller",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "modfy_request_nuller",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/ModfyRequestNullerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "WaitFollowRightclick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wait_follow_rightclick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/WaitFollowRightclickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Commands"
     }
   ],
   "variable_elements": [],
@@ -312,13 +552,17 @@
       {
         "name": "Items",
         "children": []
+      },
+      {
+        "name": "Commands",
+        "children": []
       }
     ]
   },
   "workspaceSettings": {
     "modid": "petting",
     "modName": "Petting",
-    "version": "3.0.1",
+    "version": "4.0.0",
     "description": "Pet mobs and have them become protective companions that follow you, offering support and assistance during your adventures.",
     "author": "Anchor Studios",
     "websiteURL": "https://www.anchorstudios.site/wiki/petting",
@@ -330,7 +574,7 @@
     "dependencies": [],
     "dependants": [],
     "mcreatorDependencies": [],
-    "currentGenerator": "forge-1.20.1",
+    "currentGenerator": "neoforge-1.21.1",
     "credits": "Thanks to respectful developers of Anchor Studios",
     "modElementsPackage": "net.petting"
   },

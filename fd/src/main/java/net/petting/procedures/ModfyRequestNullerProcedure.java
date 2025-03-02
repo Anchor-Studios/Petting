@@ -32,5 +32,8 @@ public class ModfyRequestNullerProcedure {
 		if (entity.getPersistentData().getBoolean("adwait")) {
 			entity.getPersistentData().putBoolean("adwait", false);
 		}
+		if (entity.getPersistentData().getBoolean("folwait")) {
+			entity.getPersistentData().putBoolean("folwait", false);
+		}
 	}
 }
