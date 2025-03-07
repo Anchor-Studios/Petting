@@ -442,6 +442,79 @@
         ]
       },
       "path": "~/Commands"
+    },
+    {
+      "name": "PetEffectPreventer",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pet_effect_preventer",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/PetEffectPreventerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/AttackPrevent"
+    },
+    {
+      "name": "ModfyRequestNuller",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "modfy_request_nuller",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/ModfyRequestNullerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "WaitFollowRightclick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wait_follow_rightclick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/WaitFollowRightclickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Commands"
     }
   ],
   "variable_elements": [],
@@ -489,7 +562,7 @@
   "workspaceSettings": {
     "modid": "petting",
     "modName": "Petting",
-    "version": "3.0.1",
+    "version": "3.0.3",
     "description": "Pet mobs and have them become protective companions that follow you, offering support and assistance during your adventures.",
     "author": "Anchor Studios",
     "websiteURL": "https://www.anchorstudios.site/wiki/petting",
@@ -501,7 +574,7 @@
     "dependencies": [],
     "dependants": [],
     "mcreatorDependencies": [],
-    "currentGenerator": "neoforge-1.21.1",
+    "currentGenerator": "forge-1.20.1",
     "credits": "Thanks to respectful developers of Anchor Studios",
     "modElementsPackage": "net.petting"
   },

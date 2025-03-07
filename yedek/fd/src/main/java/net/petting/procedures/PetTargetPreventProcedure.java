@@ -28,6 +28,13 @@ public class PetTargetPreventProcedure {
 			if (sourceentity instanceof Mob _entity) {
 				_entity.setTarget(null);
 			}
+			if (entity instanceof Mob) {
+				try {
+					((Mob) entity).setTarget(null);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
 		}
 	}
 }

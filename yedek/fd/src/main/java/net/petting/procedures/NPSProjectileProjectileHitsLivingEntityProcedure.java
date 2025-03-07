@@ -43,10 +43,9 @@ public class NPSProjectileProjectileHitsLivingEntityProcedure {
 				&& !((entity instanceof TamableAnimal _tamEnt ? _tamEnt.isTame() : false) || entity.getPersistentData().getBoolean("isTamed"))
 				&& ((entity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1) * (world.getLevelData().getGameRules().getInt(PettingModGameRules.PET_TAMEABLE_HEALTH_PERCENTAGE)))
 						/ 100 >= (entity instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1)) {
-			if (entity instanceof TamableAnimal) {
-				if (entity instanceof TamableAnimal _toTame && sourceentity instanceof Player _owner)
-					_toTame.tame(_owner);
-			} else {
+			if (entity instanceof TamableAnimal _toTame && sourceentity instanceof Player _owner)
+				_toTame.tame(_owner);
+			if (!(entity instanceof TamableAnimal)) {
 				SourceTameEntityProcedure.execute(world, entity, sourceentity);
 			}
 			if (sphere.getItem() == (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem()) {

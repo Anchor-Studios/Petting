@@ -2,6 +2,7 @@
 package net.petting.command;
 
 import net.petting.procedures.WaitTDRightclickProcedure;
+import net.petting.procedures.WaitFollowRightclickProcedure;
 import net.petting.procedures.WaitFDRightclickProcedure;
 import net.petting.procedures.WaitADRightclickProcedure;
 import net.petting.procedures.NameVisibleToggleProcedure;
@@ -19,6 +20,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.commands.Commands;
 
 import com.mojang.brigadier.arguments.DoubleArgumentType;
+import com.mojang.brigadier.arguments.BoolArgumentType;
 
 @Mod.EventBusSubscriber
 public class PettingCommand {
@@ -95,6 +97,20 @@ public class PettingCommand {
 						direction = entity.getDirection();
 
 					WaitTDRightclickProcedure.execute(world, arguments, entity);
+					return 0;
+				}))).then(Commands.literal("follow").then(Commands.argument("name", BoolArgumentType.bool()).executes(arguments -> {
+					Level world = arguments.getSource().getUnsidedLevel();
+					double x = arguments.getSource().getPosition().x();
+					double y = arguments.getSource().getPosition().y();
+					double z = arguments.getSource().getPosition().z();
+					Entity entity = arguments.getSource().getEntity();
+					if (entity == null && world instanceof ServerLevel _servLevel)
+						entity = FakePlayerFactory.getMinecraft(_servLevel);
+					Direction direction = Direction.DOWN;
+					if (entity != null)
+						direction = entity.getDirection();
+
+					WaitFollowRightclickProcedure.execute(world, arguments, entity);
 					return 0;
 				}))));
 	}

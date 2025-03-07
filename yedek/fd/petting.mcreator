@@ -488,6 +488,33 @@
         ]
       },
       "path": "~/Commands"
+    },
+    {
+      "name": "WaitFollowRightclick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wait_follow_rightclick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/WaitFollowRightclickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Commands"
     }
   ],
   "variable_elements": [],
@@ -535,7 +562,7 @@
   "workspaceSettings": {
     "modid": "petting",
     "modName": "Petting",
-    "version": "4.0.0",
+    "version": "3.0.3",
     "description": "Pet mobs and have them become protective companions that follow you, offering support and assistance during your adventures.",
     "author": "Anchor Studios",
     "websiteURL": "https://www.anchorstudios.site/wiki/petting",

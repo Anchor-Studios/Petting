@@ -195,5 +195,6 @@ Writing Output: C:\Users\User\Desktop\GitHub Repositories\Petting\yedek\fd\build
   net/petting/procedures/SourceTameEntityProcedure.class
   net/petting/procedures/WaitADRightclickProcedure.class
   net/petting/procedures/WaitFDRightclickProcedure.class
+  net/petting/procedures/WaitFollowRightclickProcedure.class
   net/petting/procedures/WaitTDRightclickProcedure.class
   pack.mcmeta
