@@ -1,22 +1,26 @@
 {
-  "_fv": 73,
+  "_fv": 77,
   "_type": "item",
   "definition": {
     "renderType": 0,
-    "texture": "goldenwheat",
+    "texture": "golden_wheat",
     "customModelName": "Normal",
     "customProperties": {},
     "states": [],
     "name": "Golden Wheat",
-    "rarity": "COMMON",
-    "creativeTabs": [],
+    "rarity": "EPIC",
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:Petting"
+      }
+    ],
     "stackSize": 64,
     "enchantability": 0,
     "useDuration": 0,
     "toolType": 1.0,
     "damageCount": 0,
     "recipeRemainder": {
-      "value": ""
+      "value": "Items.GOLD_INGOT"
     },
     "destroyAnyBlock": false,
     "immuneToFire": false,

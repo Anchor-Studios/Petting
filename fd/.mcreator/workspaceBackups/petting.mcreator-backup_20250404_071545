@@ -1,0 +1,214 @@
+{
+  "mod_elements": [
+    {
+      "name": "MaximumHealthPercentageToTame",
+      "type": "gamerule",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "maximum_health_percentage_to_tame",
+      "metadata": {
+        "files": [],
+        "type": "number"
+      },
+      "path": "~/Gamerules"
+    },
+    {
+      "name": "ChanceToTame",
+      "type": "gamerule",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chance_to_tame",
+      "metadata": {
+        "type": "number",
+        "files": []
+      },
+      "path": "~/Gamerules"
+    },
+    {
+      "name": "TameEntityforSource",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tame_entityfor_source",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/TameEntityforSourceProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/ReadyProcedures"
+    },
+    {
+      "name": "HealMobWhenTamed",
+      "type": "gamerule",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "heal_mob_when_tamed",
+      "metadata": {
+        "type": "logic",
+        "files": []
+      },
+      "path": "~/Gamerules"
+    },
+    {
+      "name": "ReturnTamedCount",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_tamed_count",
+      "metadata": {
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/petting/procedures/ReturnTamedCountProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/ReadyProcedures"
+    },
+    {
+      "name": "MaximumTameCount",
+      "type": "gamerule",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "maximum_tame_count",
+      "metadata": {
+        "type": "number",
+        "files": []
+      },
+      "path": "~/Gamerules"
+    },
+    {
+      "name": "PettingCommandReturnPetCount",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "petting_command_return_pet_count",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/PettingCommandReturnPetCountProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Command"
+    },
+    {
+      "name": "PettingCommand",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "petting_command",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/command/PettingCommandCommand.java"
+        ]
+      },
+      "path": "~/Command"
+    },
+    {
+      "name": "PettingCommandAllowDisablePetting",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "petting_command_allow_disable_petting",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/PettingCommandAllowDisablePettingProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Command"
+    }
+  ],
+  "variable_elements": [
+    {
+      "name": "allowpeting",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "true"
+    }
+  ],
+  "sound_elements": [],
+  "tag_elements": {},
+  "tab_element_order": {},
+  "language_map": {
+    "en_us": {
+      "gamerule.healMobWhenTamed": "Heal Mob When Tamed",
+      "gamerule.maximumTameCount.description": "Defines maximum tameable mob per player. Only counts mobs tamed with Golden Wheat. Set value to \"-1\" to disable limit.",
+      "gamerule.chanceToTame.description": "Defines succes rate of taming with Golden Wheat.",
+      "gamerule.maximumTameCount": "Maximum Tame Count",
+      "gamerule.maximumHealthPercentageToTame": "Maximum Health Percentage To Tame",
+      "gamerule.chanceToTame": "Chance To Tame",
+      "gamerule.maximumHealthPercentageToTame.description": "Defines maximum percentage of mob\u0027s health to become tameable with Golden Wheat.",
+      "gamerule.healMobWhenTamed.description": "If true, heals the mob when tamed with Golden Wheat."
+    }
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": [
+      {
+        "name": "Gamerules",
+        "children": []
+      },
+      {
+        "name": "ReadyProcedures",
+        "children": []
+      },
+      {
+        "name": "Command",
+        "children": []
+      }
+    ]
+  },
+  "workspaceSettings": {
+    "modid": "petting",
+    "modName": "Petting",
+    "version": "1.0.0",
+    "author": "User, MCreator",
+    "websiteURL": "https://mcreator.net",
+    "license": "Not specified",
+    "serverSideOnly": false,
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "neoforge-1.21.4",
+    "modElementsPackage": "net.petting"
+  },
+  "mcreatorVersion": 202500113416
+}

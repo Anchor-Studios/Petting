@@ -1,0 +1,12 @@
+{
+  "_fv": 77,
+  "_type": "gamerule",
+  "definition": {
+    "type": "Number",
+    "displayName": "Chance To Tame",
+    "description": "Defines succes rate of taming with Golden Wheat.",
+    "category": "PLAYER",
+    "defaultValueLogic": false,
+    "defaultValueNumber": 100
+  }
+}

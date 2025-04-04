@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "petting:item/goldenwheat"
+    "layer0": "petting:item/golden_wheat"
   }
 }

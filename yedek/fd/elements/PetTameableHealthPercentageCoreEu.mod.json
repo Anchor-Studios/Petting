@@ -1,7 +1,0 @@
-{
-  "_fv": 73,
-  "_type": "procedure",
-  "definition": {
-    "procedurexml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"event_trigger\" deletable=\"false\" x=\"40\" y=\"40\"><field name=\"trigger\">world_ticks</field><next><block type=\"controls_if\"><mutation elseif=\"1\"></mutation><value name=\"IF0\"><block type=\"math_binary_ops\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"math_number\"><field name=\"NUM\">100</field></block></value><value name=\"B\"><block type=\"world_data_num_getgamerule\"><field name=\"gamerulesnumber\">CUSTOM:PetTameableHealthPercentage</field></block></value></block></value><statement name=\"DO0\"><block type=\"world_data_num_setgamerule\"><field name=\"gamerulesnumber\">CUSTOM:PetTameableHealthPercentage</field><value name=\"gameruleValue\"><block type=\"math_number\"><field name=\"NUM\">100</field></block></value></block></statement><value name=\"IF1\"><block type=\"math_binary_ops\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><value name=\"B\"><block type=\"world_data_num_getgamerule\"><field name=\"gamerulesnumber\">CUSTOM:PetTameableHealthPercentage</field></block></value></block></value><statement name=\"DO1\"><block type=\"world_data_num_setgamerule\"><field name=\"gamerulesnumber\">CUSTOM:PetTameableHealthPercentage</field><value name=\"gameruleValue\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></statement></block></next></block></xml>"
-  }
-}
