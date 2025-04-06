@@ -1,0 +1,12 @@
+{
+  "_fv": 77,
+  "_type": "gamerule",
+  "definition": {
+    "type": "Number",
+    "displayName": "Default Follow Distance",
+    "description": "Defines default follow distance for tamed mobs. Only counts mobs tamed with Golden Wheat.",
+    "category": "MOBS",
+    "defaultValueLogic": false,
+    "defaultValueNumber": 6
+  }
+}

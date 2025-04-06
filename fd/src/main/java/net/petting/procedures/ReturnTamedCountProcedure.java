@@ -14,12 +14,16 @@ public class ReturnTamedCountProcedure {
 			String[] _array = (entity.getPersistentData().getString("petlist")).split(Pattern.quote(","));
 			if (_array.length != 0) {
 				for (String stringiterator : _array) {
-					c = c + 1;
+					if (!(stringiterator).equals("")) {
+						c = c + 1;
+					}
 				}
 			} else {
 				String stringiterator = (entity.getPersistentData().getString("petlist"));
 				for (int _yourmother = 0; _yourmother < 1; _yourmother++) {
-					c = c + 1;
+					if (!(stringiterator).equals("")) {
+						c = c + 1;
+					}
 				}
 			}
 		}

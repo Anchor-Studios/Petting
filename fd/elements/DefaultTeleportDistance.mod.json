@@ -1,0 +1,12 @@
+{
+  "_fv": 77,
+  "_type": "gamerule",
+  "definition": {
+    "type": "Number",
+    "displayName": "Default Teleport Distance",
+    "description": "Determines default teleport distance for tamed mobs. Only counts mobs tamed with Golden Wheat. Set value to \"-1\" to prevent teleportation.",
+    "category": "MOBS",
+    "defaultValueLogic": false,
+    "defaultValueNumber": 13
+  }
+}

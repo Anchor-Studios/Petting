@@ -46,7 +46,7 @@ public class GoldenWheatRightclickProcedure {
 					: -1) <= ((entity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1) * (world instanceof ServerLevel _serverLevelGR5 ? _serverLevelGR5.getGameRules().getInt(PettingModGameRules.MAXIMUM_HEALTH_PERCENTAGE_TO_TAME) : 0))
 							/ 100
 					&& ReturnTamedCountProcedure.execute(sourceentity) < (world instanceof ServerLevel _serverLevelGR6 ? _serverLevelGR6.getGameRules().getInt(PettingModGameRules.MAXIMUM_TAME_COUNT) : 0)
-					&& sourceentity.getData(PettingModVariables.PLAYER_VARIABLES).allowpeting && !(entity instanceof Player || entity instanceof ServerPlayer)) {
+					&& sourceentity.getData(PettingModVariables.PLAYER_VARIABLES).allowpeting && !entity.getPersistentData().getBoolean("tamed") && !(entity instanceof Player || entity instanceof ServerPlayer)) {
 				if (!(getEntityGameType(sourceentity) == GameType.CREATIVE)) {
 					if (sourceentity instanceof LivingEntity _entity) {
 						ItemStack _setstack = new ItemStack(PettingModItems.GOLDEN_WHEAT.get()).copy();
@@ -58,8 +58,8 @@ public class GoldenWheatRightclickProcedure {
 				}
 				if (sourceentity instanceof LivingEntity _entity)
 					_entity.swing(InteractionHand.MAIN_HAND, true);
-				if (getEntityGameType(sourceentity) == GameType.CREATIVE || 100 * Math.random() <= (world instanceof ServerLevel _serverLevelGR15 ? _serverLevelGR15.getGameRules().getInt(PettingModGameRules.CHANCE_TO_TAME) : 0)
-						&& 0 != (world instanceof ServerLevel _serverLevelGR16 ? _serverLevelGR16.getGameRules().getInt(PettingModGameRules.CHANCE_TO_TAME) : 0)) {
+				if (getEntityGameType(sourceentity) == GameType.CREATIVE || 100 * Math.random() <= (world instanceof ServerLevel _serverLevelGR16 ? _serverLevelGR16.getGameRules().getInt(PettingModGameRules.CHANCE_TO_TAME) : 0)
+						&& 0 != (world instanceof ServerLevel _serverLevelGR17 ? _serverLevelGR17.getGameRules().getInt(PettingModGameRules.CHANCE_TO_TAME) : 0)) {
 					if (world instanceof ServerLevel _level)
 						_level.sendParticles(ParticleTypes.HEART, x, y, z, (int) (2 + Math.round(3 * Math.random())), 1, 1, 1, 1);
 					TameEntityforSourceProcedure.execute(world, entity, sourceentity);

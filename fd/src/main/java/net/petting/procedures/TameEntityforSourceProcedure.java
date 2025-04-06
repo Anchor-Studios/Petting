@@ -39,7 +39,20 @@ public class TameEntityforSourceProcedure {
 			entity.setCustomName(Component.literal((sourceentity.getDisplayName().getString() + "'s " + entity.getDisplayName().getString())));
 			entity.getPersistentData().putString("owneruuid", (sourceentity.getStringUUID()));
 			entity.getPersistentData().putBoolean("tamed", true);
-			if ((sourceentity.getPersistentData().getString("petlist")).equals("")) {
+			entity.getPersistentData().putDouble("followdistance", (world instanceof ServerLevel _serverLevelGR10 ? _serverLevelGR10.getGameRules().getInt(PettingModGameRules.DEFAULT_FOLLOW_DISTANCE) : 0));
+			entity.getPersistentData().putDouble("teleportdistance", (world instanceof ServerLevel _serverLevelGR12 ? _serverLevelGR12.getGameRules().getInt(PettingModGameRules.DEFAULT_TELEPORT_DISTANCE) : 0));
+			entity.getPersistentData().putDouble("attackdistance", (world instanceof ServerLevel _serverLevelGR14 ? _serverLevelGR14.getGameRules().getInt(PettingModGameRules.DEFAULT_ATTACK_DISTANCE) : 0));
+			if ((world instanceof ServerLevel _serverLevelGR16 ? _serverLevelGR16.getGameRules().getInt(PettingModGameRules.DEFAULT_TELEPORT_DISTANCE) : 0) == -1) {
+				entity.getPersistentData().putBoolean("teleport", false);
+			} else {
+				entity.getPersistentData().putBoolean("teleport", true);
+			}
+			if ((world instanceof ServerLevel _serverLevelGR19 ? _serverLevelGR19.getGameRules().getInt(PettingModGameRules.DEFAULT_ATTACK_DISTANCE) : 0) == -1) {
+				entity.getPersistentData().putString("attackmode", "none");
+			} else {
+				entity.getPersistentData().putString("attackmode", "everyone");
+			}
+			if ((sourceentity.getPersistentData().getString("petlist")).equals("") || (sourceentity.getPersistentData().getString("petlist")).equals(",")) {
 				sourceentity.getPersistentData().putString("petlist", (entity.getStringUUID()));
 			} else {
 				sourceentity.getPersistentData().putString("petlist", ("," + entity.getStringUUID()));
@@ -49,7 +62,7 @@ public class TameEntityforSourceProcedure {
 			}
 			if (entity instanceof Mob _entity)
 				_entity.getNavigation().stop();
-			if (world instanceof ServerLevel _serverLevelGR17 && _serverLevelGR17.getGameRules().getBoolean(PettingModGameRules.HEAL_MOB_WHEN_TAMED)) {
+			if (world instanceof ServerLevel _serverLevelGR30 && _serverLevelGR30.getGameRules().getBoolean(PettingModGameRules.HEAL_MOB_WHEN_TAMED)) {
 				if (entity instanceof LivingEntity _entity)
 					_entity.setHealth(entity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1);
 			}

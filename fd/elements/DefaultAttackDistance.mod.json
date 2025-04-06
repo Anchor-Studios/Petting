@@ -1,0 +1,12 @@
+{
+  "_fv": 77,
+  "_type": "gamerule",
+  "definition": {
+    "type": "Number",
+    "displayName": "Default Attack Distance",
+    "description": "Determines default attack distance for tamed mobs. Only counts mobs tamed with Golden Wheat. Set value to \"-1\" to prevent attacking.",
+    "category": "MOBS",
+    "defaultValueLogic": false,
+    "defaultValueNumber": 32
+  }
+}

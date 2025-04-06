@@ -199,6 +199,191 @@
         ]
       },
       "path": "~/IndividualProcedures"
+    },
+    {
+      "name": "GoldenWheat",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "golden_wheat",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/petting/models/item/golden_wheat.json",
+          "src/main/resources/assets/petting/items/golden_wheat.json",
+          "src/main/java/net/petting/item/GoldenWheatItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "PettingCommandReturnPetCountSelf",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "petting_command_return_pet_count_self",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/PettingCommandReturnPetCountSelfProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Command"
+    },
+    {
+      "name": "PettingCommandAllowDisablePettingSelf",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "petting_command_allow_disable_petting_self",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/PettingCommandAllowDisablePettingSelfProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Command"
+    },
+    {
+      "name": "PettingCommandAllowDisablePettingSelfAuto",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "petting_command_allow_disable_petting_self_auto",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/PettingCommandAllowDisablePettingSelfAutoProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Command"
+    },
+    {
+      "name": "PettingCommandAllowDisablePettingAuto",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "petting_command_allow_disable_petting_auto",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/PettingCommandAllowDisablePettingAutoProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Command"
+    },
+    {
+      "name": "GoldenWheatRightclick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "golden_wheat_rightclick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/GoldenWheatRightclickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "DefaultFollowDistance",
+      "type": "gamerule",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "default_follow_distance",
+      "metadata": {
+        "type": "number",
+        "files": []
+      },
+      "path": "~/Gamerules"
+    },
+    {
+      "name": "DefaultTeleportDistance",
+      "type": "gamerule",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "default_teleport_distance",
+      "metadata": {
+        "type": "number",
+        "files": []
+      },
+      "path": "~/Gamerules"
+    },
+    {
+      "name": "DiedPetRemove",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "died_pet_remove",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/DiedPetRemoveProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/IndividualProcedures"
     }
   ],
   "variable_elements": [
@@ -214,16 +399,21 @@
   "tab_element_order": {},
   "language_map": {
     "en_us": {
-      "gamerule.healMobWhenTamed": "Heal Mob When Tamed",
-      "gamerule.maximumTameCount.description": "Defines maximum tameable mob per player. Only counts mobs tamed with Golden Wheat. Set value to \"-1\" to disable limit.",
+      "gamerule.defaultFollowDistance": "Default Follow Distance",
       "item_group.petting.petting": "Petting",
       "gamerule.chanceToTame.description": "Defines succes rate of taming with Golden Wheat.",
       "gamerule.allowPettingByDefault.description": "If false, new player won\u0027t be able to use Golden Wheat to tame unless they are allowed with commands.",
+      "gamerule.chanceToTame": "Chance To Tame",
+      "gamerule.defaultTeleportDistance.description": "Determines default teleport distance for tamed mobs. Only counts mobs tamed with Golden Wheat. Set value to \"-1\" to prevent teleportation.",
+      "gamerule.defaultTeleportDistance": "Default Teleport Distance",
+      "gamerule.maximumHealthPercentageToTame.description": "Defines maximum percentage of mob\u0027s health to become tameable with Golden Wheat.",
+      "gamerule.healMobWhenTamed": "Heal Mob When Tamed",
+      "gamerule.maximumTameCount.description": "Defines maximum tameable mob per player. Only counts mobs tamed with Golden Wheat. Set value to \"-1\" to disable limit.",
+      "gamerule.defaultFollowDistance.description": "Defines default follow distance for tamed mobs. Only counts mobs tamed with Golden Wheat.",
       "gamerule.maximumTameCount": "Maximum Tame Count",
       "gamerule.maximumHealthPercentageToTame": "Maximum Health Percentage To Tame",
-      "gamerule.chanceToTame": "Chance To Tame",
+      "item.petting.golden_wheat": "Golden Wheat",
       "gamerule.allowPettingByDefault": "Allow Petting By Default",
-      "gamerule.maximumHealthPercentageToTame.description": "Defines maximum percentage of mob\u0027s health to become tameable with Golden Wheat.",
       "gamerule.healMobWhenTamed.description": "If true, heals the mob when tamed with Golden Wheat."
     }
   },
@@ -248,6 +438,10 @@
       },
       {
         "name": "IndividualProcedures",
+        "children": []
+      },
+      {
+        "name": "Items",
         "children": []
       }
     ]

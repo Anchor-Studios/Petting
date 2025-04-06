@@ -298,6 +298,69 @@
         ]
       },
       "path": "~/Command"
+    },
+    {
+      "name": "GoldenWheatRightclick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "golden_wheat_rightclick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/GoldenWheatRightclickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "DefaultFollowDistance",
+      "type": "gamerule",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "default_follow_distance",
+      "metadata": {
+        "type": "number",
+        "files": []
+      },
+      "path": "~/Gamerules"
+    },
+    {
+      "name": "DefaultTeleportDistance",
+      "type": "gamerule",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "default_teleport_distance",
+      "metadata": {
+        "type": "number",
+        "files": []
+      },
+      "path": "~/Gamerules"
     }
   ],
   "variable_elements": [
@@ -313,13 +376,17 @@
   "tab_element_order": {},
   "language_map": {
     "en_us": {
+      "gamerule.defaultFollowDistance": "Default Follow Distance",
       "item_group.petting.petting": "Petting",
       "gamerule.chanceToTame.description": "Defines succes rate of taming with Golden Wheat.",
       "gamerule.allowPettingByDefault.description": "If false, new player won\u0027t be able to use Golden Wheat to tame unless they are allowed with commands.",
       "gamerule.chanceToTame": "Chance To Tame",
+      "gamerule.defaultTeleportDistance.description": "Determines default teleport distance for tamed mobs. Only counts mobs tamed with Golden Wheat. Set value to \"-1\" to prevent teleportation.",
+      "gamerule.defaultTeleportDistance": "Default Teleport Distance",
       "gamerule.maximumHealthPercentageToTame.description": "Defines maximum percentage of mob\u0027s health to become tameable with Golden Wheat.",
       "gamerule.healMobWhenTamed": "Heal Mob When Tamed",
       "gamerule.maximumTameCount.description": "Defines maximum tameable mob per player. Only counts mobs tamed with Golden Wheat. Set value to \"-1\" to disable limit.",
+      "gamerule.defaultFollowDistance.description": "Defines default follow distance for tamed mobs. Only counts mobs tamed with Golden Wheat.",
       "gamerule.maximumTameCount": "Maximum Tame Count",
       "gamerule.maximumHealthPercentageToTame": "Maximum Health Percentage To Tame",
       "item.petting.golden_wheat": "Golden Wheat",
