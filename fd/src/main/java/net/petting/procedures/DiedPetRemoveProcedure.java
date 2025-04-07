@@ -1,5 +1,7 @@
 package net.petting.procedures;
 
+import net.petting.network.PettingModVariables;
+
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -34,6 +36,14 @@ public class DiedPetRemoveProcedure {
 			if (!(entityFromStringUUID((entity.getPersistentData().getString("owneruuid")), (Level) world) == null)) {
 				entityFromStringUUID((entity.getPersistentData().getString("owneruuid")), (Level) world).getPersistentData().putString("petlist",
 						((entityFromStringUUID((entity.getPersistentData().getString("owneruuid")), (Level) world).getPersistentData().getString("petlist")).replaceAll(entity.getStringUUID(), "")));
+			} else {
+				if ((",").equals(PettingModVariables.MapVariables.get(world).petdelete) || ("\"\"").equals(PettingModVariables.MapVariables.get(world).petdelete) || ("").equals(PettingModVariables.MapVariables.get(world).petdelete)) {
+					PettingModVariables.MapVariables.get(world).petdelete = entity.getPersistentData().getString("owneruuid") + "--" + entity.getStringUUID();
+					PettingModVariables.MapVariables.get(world).syncData(world);
+				} else {
+					PettingModVariables.MapVariables.get(world).petdelete = "," + entity.getPersistentData().getString("owneruuid") + "--" + entity.getStringUUID();
+					PettingModVariables.MapVariables.get(world).syncData(world);
+				}
 			}
 		}
 	}

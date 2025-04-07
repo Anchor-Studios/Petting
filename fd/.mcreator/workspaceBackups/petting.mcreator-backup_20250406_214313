@@ -361,6 +361,84 @@
         "files": []
       },
       "path": "~/Gamerules"
+    },
+    {
+      "name": "DiedPetRemove",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "died_pet_remove",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/DiedPetRemoveProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/IndividualProcedures"
+    },
+    {
+      "name": "PetListEmptier",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pet_list_emptier",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/PetListEmptierProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/IndividualProcedures"
+    },
+    {
+      "name": "DefaultAttackDistance",
+      "type": "gamerule",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "default_attack_distance",
+      "metadata": {
+        "type": "number",
+        "files": []
+      },
+      "path": "~/Gamerules"
+    },
+    {
+      "name": "WhenPetNeedToFollowOwner",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "when_pet_need_to_follow_owner",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/petting/procedures/WhenPetNeedToFollowOwnerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/PetSystems/Following"
     }
   ],
   "variable_elements": [
@@ -369,6 +447,12 @@
       "type": "logic",
       "scope": "player_persistent",
       "value": "true"
+    },
+    {
+      "name": "petdelete",
+      "type": "string",
+      "scope": "map",
+      "value": "\"\""
     }
   ],
   "sound_elements": [],
@@ -382,6 +466,7 @@
       "gamerule.allowPettingByDefault.description": "If false, new player won\u0027t be able to use Golden Wheat to tame unless they are allowed with commands.",
       "gamerule.chanceToTame": "Chance To Tame",
       "gamerule.defaultTeleportDistance.description": "Determines default teleport distance for tamed mobs. Only counts mobs tamed with Golden Wheat. Set value to \"-1\" to prevent teleportation.",
+      "gamerule.defaultAttackDistance": "Default Attack Distance",
       "gamerule.defaultTeleportDistance": "Default Teleport Distance",
       "gamerule.maximumHealthPercentageToTame.description": "Defines maximum percentage of mob\u0027s health to become tameable with Golden Wheat.",
       "gamerule.healMobWhenTamed": "Heal Mob When Tamed",
@@ -390,6 +475,7 @@
       "gamerule.maximumTameCount": "Maximum Tame Count",
       "gamerule.maximumHealthPercentageToTame": "Maximum Health Percentage To Tame",
       "item.petting.golden_wheat": "Golden Wheat",
+      "gamerule.defaultAttackDistance.description": "Determines default attack distance for tamed mobs. Only counts mobs tamed with Golden Wheat. Set value to \"-1\" to prevent attacking.",
       "gamerule.allowPettingByDefault": "Allow Petting By Default",
       "gamerule.healMobWhenTamed.description": "If true, heals the mob when tamed with Golden Wheat."
     }
@@ -420,6 +506,15 @@
       {
         "name": "Items",
         "children": []
+      },
+      {
+        "name": "PetSystems",
+        "children": [
+          {
+            "name": "Following",
+            "children": []
+          }
+        ]
       }
     ]
   },
