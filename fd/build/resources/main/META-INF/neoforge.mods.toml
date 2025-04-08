@@ -4,11 +4,13 @@ license="All Rights Reserved"
 
 [[mods]]
 modId="petting"
-version="3.0.0"
+version="2025.4.3.0."
 displayName="Petting"
-displayURL="https://mcreator.net"
-credits="Created using mod maker MCreator - https://mcreator.net/about"
-authors="User, MCreator"
+displayURL="https://www.anchorstudios.site/wiki/petting"
+credits="Thanks to anyone who contributed."
+authors="Anchor Studios"
+description="Pet mobs and have them become protective companions that follow you, offering support and assistance during your adventures."
+displayTest="IGNORE_SERVER_VERSION"
 
 # Start of user code block mod configuration
 # End of user code block mod configuration
@@ -27,6 +29,12 @@ authors="User, MCreator"
     ordering="AFTER"
     side="BOTH"
 
+[[dependencies.petting]]
+    modId="ancore"
+    type="required"
+    versionRange="[0,)"
+    ordering="NONE"
+    side="BOTH"
 
 
 

@@ -5,6 +5,7 @@ import org.apache.logging.log4j.LogManager;
 
 import net.petting.network.PettingModVariables;
 import net.petting.init.PettingModTabs;
+import net.petting.init.PettingModMenus;
 import net.petting.init.PettingModItems;
 
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
@@ -44,6 +45,8 @@ public class PettingMod {
 
 		PettingModTabs.REGISTRY.register(modEventBus);
 		PettingModVariables.ATTACHMENT_TYPES.register(modEventBus);
+
+		PettingModMenus.REGISTRY.register(modEventBus);
 
 		// Start of user code block mod init
 		// End of user code block mod init

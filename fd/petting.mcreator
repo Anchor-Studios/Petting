@@ -427,7 +427,6 @@
       "locked_code": false,
       "registry_name": "when_pet_need_to_follow_owner",
       "metadata": {
-        "return_type": "logic",
         "files": [
           "src/main/java/net/petting/procedures/WhenPetNeedToFollowOwnerProcedure.java"
         ],
@@ -466,6 +465,845 @@
         ]
       },
       "path": "~/IndividualProcedures"
+    },
+    {
+      "name": "EntityFollowSource",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "entity_follow_source",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/EntityFollowSourceProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/PetSystems/Following"
+    },
+    {
+      "name": "EntityTeleportSource",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "entity_teleport_source",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/EntityTeleportSourceProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/PetSystems/Following"
+    },
+    {
+      "name": "Targeter",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "targeter",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/TargeterProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/PetSystems/Attacking"
+    },
+    {
+      "name": "ShouldEntityAttackmodeAttackSource",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "should_entity_attackmode_attack_source",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/petting/procedures/ShouldEntityAttackmodeAttackSourceProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/PetSystems/Attacking"
+    },
+    {
+      "name": "PetsFriendlyFire",
+      "type": "gamerule",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pets_friendly_fire",
+      "metadata": {
+        "files": [],
+        "type": "logic"
+      },
+      "path": "~/Gamerules"
+    },
+    {
+      "name": "TargetSetter",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "target_setter",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/TargetSetterProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/PetSystems/Attacking"
+    },
+    {
+      "name": "TargetSetterDefence",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "target_setter_defence",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/TargetSetterDefenceProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/PetSystems/Attacking"
+    },
+    {
+      "name": "PetSettingsGUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pet_settings_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/client/gui/PetSettingsGUIScreen.java",
+          "src/main/java/net/petting/network/PetSettingsGUIButtonMessage.java",
+          "src/main/java/net/petting/world/inventory/PetSettingsGUIMenu.java"
+        ]
+      },
+      "path": "~/PetSystems/Settings"
+    },
+    {
+      "name": "OpenSettingsRightclick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_settings_rightclick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/OpenSettingsRightclickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/PetSystems/Settings"
+    },
+    {
+      "name": "PetSettingsGUIWhileThisGUIIsOpenTick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pet_settings_gui_while_this_gui_is_open_tick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/PetSettingsGUIWhileThisGUIIsOpenTickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/PetSystems/Settings"
+    },
+    {
+      "name": "ReturnPetNick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_pet_nick",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/petting/procedures/ReturnPetNickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/PetSystems/Settings"
+    },
+    {
+      "name": "ReturnPetHealth",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_pet_health",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/petting/procedures/ReturnPetHealthProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/PetSystems/Settings"
+    },
+    {
+      "name": "ReturnPetType",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_pet_type",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/petting/procedures/ReturnPetTypeProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/PetSystems/Settings"
+    },
+    {
+      "name": "FollowSettingsGUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "follow_settings_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/network/FollowSettingsGUIButtonMessage.java",
+          "src/main/java/net/petting/client/gui/FollowSettingsGUIScreen.java",
+          "src/main/java/net/petting/world/inventory/FollowSettingsGUIMenu.java"
+        ]
+      },
+      "path": "~/PetSystems/Settings"
+    },
+    {
+      "name": "ReturnPetFollowDistance",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_pet_follow_distance",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/petting/procedures/ReturnPetFollowDistanceProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/PetSystems/Settings"
+    },
+    {
+      "name": "ReturnPetTeleportDistance",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_pet_teleport_distance",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/petting/procedures/ReturnPetTeleportDistanceProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/PetSystems/Settings"
+    },
+    {
+      "name": "SetPetTyp",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "set_pet_typ",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/petting/procedures/SetPetTypProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/ReadyProcedures"
+    },
+    {
+      "name": "AttackSettingsGUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "attack_settings_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/world/inventory/AttackSettingsGUIMenu.java",
+          "src/main/java/net/petting/client/gui/AttackSettingsGUIScreen.java",
+          "src/main/java/net/petting/network/AttackSettingsGUIButtonMessage.java"
+        ]
+      },
+      "path": "~/PetSystems/Settings"
+    },
+    {
+      "name": "OpenAttackSettings",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_attack_settings",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/OpenAttackSettingsProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/PetSystems/Settings"
+    },
+    {
+      "name": "OpenFollowSettings",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_follow_settings",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/OpenFollowSettingsProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/PetSystems/Settings"
+    },
+    {
+      "name": "OpenPetSettings",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_pet_settings",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/OpenPetSettingsProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/PetSystems/Settings"
+    },
+    {
+      "name": "ReturnAttackmodeNone",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_attackmode_none",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/petting/procedures/ReturnAttackmodeNoneProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/PetSystems/Settings"
+    },
+    {
+      "name": "ReturnAttackmodeNonplayer",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_attackmode_nonplayer",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/petting/procedures/ReturnAttackmodeNonplayerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/PetSystems/Settings"
+    },
+    {
+      "name": "ReturnAttackmodeEveryone",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_attackmode_everyone",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/petting/procedures/ReturnAttackmodeEveryoneProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/PetSystems/Settings"
+    },
+    {
+      "name": "ToggleAttackmode",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toggle_attackmode",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/ToggleAttackmodeProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/PetSystems/Settings"
+    },
+    {
+      "name": "ToggleFollowOwner",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toggle_follow_owner",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/ToggleFollowOwnerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/PetSystems/Settings"
+    },
+    {
+      "name": "ReturnFollowOwner",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_follow_owner",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/petting/procedures/ReturnFollowOwnerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/PetSystems/Settings"
+    },
+    {
+      "name": "ReturnNotFollowOwner",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_not_follow_owner",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/petting/procedures/ReturnNotFollowOwnerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/PetSystems/Settings"
+    },
+    {
+      "name": "ToggleTeleportOwner",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toggle_teleport_owner",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/ToggleTeleportOwnerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/PetSystems/Settings"
+    },
+    {
+      "name": "ReturnTeleportOwner",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_teleport_owner",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/petting/procedures/ReturnTeleportOwnerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/PetSystems/Settings"
+    },
+    {
+      "name": "ReturnNotTeleportOwner",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_not_teleport_owner",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/petting/procedures/ReturnNotTeleportOwnerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/PetSystems/Settings"
+    },
+    {
+      "name": "IncreaseFollowDistance",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "increase_follow_distance",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/IncreaseFollowDistanceProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/PetSystems/Settings"
+    },
+    {
+      "name": "DecreaseFollowDistance",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "decrease_follow_distance",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/DecreaseFollowDistanceProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/PetSystems/Settings"
+    },
+    {
+      "name": "IncreaseTeleportDistance",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "increase_teleport_distance",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/IncreaseTeleportDistanceProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/PetSystems/Settings"
+    },
+    {
+      "name": "DecreaseTeleportDistance",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "decrease_teleport_distance",
+      "metadata": {
+        "files": [
+          "src/main/java/net/petting/procedures/DecreaseTeleportDistanceProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/PetSystems/Settings"
     }
   ],
   "variable_elements": [
@@ -480,6 +1318,12 @@
       "type": "string",
       "scope": "map",
       "value": "\"\""
+    },
+    {
+      "name": "petsettingsuuid",
+      "type": "string",
+      "scope": "player_persistent",
+      "value": "\"\""
     }
   ],
   "sound_elements": [],
@@ -487,24 +1331,37 @@
   "tab_element_order": {},
   "language_map": {
     "en_us": {
-      "gamerule.defaultFollowDistance": "Default Follow Distance",
-      "item_group.petting.petting": "Petting",
       "gamerule.chanceToTame.description": "Defines succes rate of taming with Golden Wheat.",
-      "gamerule.allowPettingByDefault.description": "If false, new player won\u0027t be able to use Golden Wheat to tame unless they are allowed with commands.",
-      "gamerule.chanceToTame": "Chance To Tame",
       "gamerule.defaultTeleportDistance.description": "Determines default teleport distance for tamed mobs. Only counts mobs tamed with Golden Wheat. Set value to \"-1\" to prevent teleportation.",
-      "gamerule.defaultAttackDistance": "Default Attack Distance",
+      "gamerule.chanceToTame": "Chance To Tame",
+      "gui.petting.follow_settings_gui.label_follow_distance": "Follow distance",
       "gamerule.defaultTeleportDistance": "Default Teleport Distance",
       "gamerule.maximumHealthPercentageToTame.description": "Defines maximum percentage of mob\u0027s health to become tameable with Golden Wheat.",
       "gamerule.healMobWhenTamed": "Heal Mob When Tamed",
-      "gamerule.maximumTameCount.description": "Defines maximum tameable mob per player. Only counts mobs tamed with Golden Wheat. Set value to \"-1\" to disable limit.",
       "gamerule.defaultFollowDistance.description": "Defines default follow distance for tamed mobs. Only counts mobs tamed with Golden Wheat.",
+      "gui.petting.pet_settings_gui.label_health_999": "Health: 999",
       "gamerule.maximumTameCount": "Maximum Tame Count",
-      "gamerule.maximumHealthPercentageToTame": "Maximum Health Percentage To Tame",
       "item.petting.golden_wheat": "Golden Wheat",
+      "gui.petting.attack_settings_gui.button_attack_everyone": "Attack Everyone",
       "gamerule.defaultAttackDistance.description": "Determines default attack distance for tamed mobs. Only counts mobs tamed with Golden Wheat. Set value to \"-1\" to prevent attacking.",
+      "gamerule.healMobWhenTamed.description": "If true, heals the mob when tamed with Golden Wheat.",
+      "gamerule.defaultFollowDistance": "Default Follow Distance",
+      "gui.petting.follow_settings_gui.label_follow_owner": "Follow owner",
+      "item_group.petting.petting": "Petting",
+      "gamerule.allowPettingByDefault.description": "If false, new player won\u0027t be able to use Golden Wheat to tame unless they are allowed with commands.",
+      "gui.petting.follow_settings_gui.label_teleport_owner": "Teleport owner",
+      "gamerule.defaultAttackDistance": "Default Attack Distance",
+      "gamerule.petsFriendlyFire": "Pets Friendly Fire",
+      "gui.petting.follow_settings_gui.label_1000": "1000+",
+      "gui.petting.pet_settings_gui.label_petname": "PetName",
+      "gamerule.maximumTameCount.description": "Defines maximum tameable mob per player. Only counts mobs tamed with Golden Wheat. Set value to \"-1\" to disable limit.",
+      "gamerule.petsFriendlyFire.description": "If false, pets of same player tamed with Golden Wheat won\u0027t attack each other.",
+      "gamerule.maximumHealthPercentageToTame": "Maximum Health Percentage To Tame",
+      "gui.petting.attack_settings_gui.button_attack_everyone1": "Attack Non-players",
       "gamerule.allowPettingByDefault": "Allow Petting By Default",
-      "gamerule.healMobWhenTamed.description": "If true, heals the mob when tamed with Golden Wheat."
+      "gui.petting.attack_settings_gui.button_attack_everyone2": "Peaceful",
+      "gui.petting.follow_settings_gui.label_teleport_distance": "Teleport distance",
+      "gui.petting.pet_settings_gui.label_type_not_specified": "Type: Not Specified"
     }
   },
   "foldersRoot": {
@@ -540,6 +1397,14 @@
           {
             "name": "Following",
             "children": []
+          },
+          {
+            "name": "Attacking",
+            "children": []
+          },
+          {
+            "name": "Settings",
+            "children": []
           }
         ]
       }
@@ -548,17 +1413,20 @@
   "workspaceSettings": {
     "modid": "petting",
     "modName": "Petting",
-    "version": "3.0.0",
-    "author": "User, MCreator",
-    "websiteURL": "https://mcreator.net",
+    "version": "2025.4.3.0.alpha",
+    "description": "Pet mobs and have them become protective companions that follow you, offering support and assistance during your adventures.",
+    "author": "Anchor Studios",
+    "websiteURL": "https://www.anchorstudios.site/wiki/petting",
     "license": "All Rights Reserved",
-    "serverSideOnly": false,
-    "requiredMods": [],
+    "serverSideOnly": true,
+    "requiredMods": [
+      "ancore"
+    ],
     "dependencies": [],
     "dependants": [],
     "mcreatorDependencies": [],
     "currentGenerator": "neoforge-1.21.4",
-    "credits": "Created using mod maker MCreator - https://mcreator.net/about",
+    "credits": "Thanks to anyone who contributed.",
     "modElementsPackage": "net.petting"
   },
   "mcreatorVersion": 202500113416

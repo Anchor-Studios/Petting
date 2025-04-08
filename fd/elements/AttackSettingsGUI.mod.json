@@ -1,0 +1,137 @@
+{
+  "_fv": 77,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 46,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_petname",
+          "text": {
+            "fixedValue": "PetName",
+            "name": "ReturnPetNick"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 131,
+          "y": 102,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_followsectionclose",
+          "image": "followsectionclose.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "OpenFollowSettings"
+          },
+          "x": 153,
+          "y": 68,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "attacksectionopen.png",
+          "use1Xscale": false,
+          "x": 180,
+          "y": 69,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_attack_everyone",
+          "text": "Attack Everyone",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "ToggleAttackmode"
+          },
+          "displayCondition": {
+            "name": "ReturnAttackmodeEveryone"
+          },
+          "width": 103,
+          "height": 20,
+          "x": 161,
+          "y": 116,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_attack_everyone1",
+          "text": "Attack Non-players",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "ToggleAttackmode"
+          },
+          "displayCondition": {
+            "name": "ReturnAttackmodeNonplayer"
+          },
+          "width": 103,
+          "height": 20,
+          "x": 161,
+          "y": 116,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_attack_everyone2",
+          "text": "Peaceful",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "ToggleAttackmode"
+          },
+          "displayCondition": {
+            "name": "ReturnAttackmodeNone"
+          },
+          "width": 103,
+          "height": 20,
+          "x": 161,
+          "y": 116,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_infosectionclose",
+          "image": "infosectionclose.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "OpenPetSettings"
+          },
+          "x": 126,
+          "y": 68,
+          "locked": false
+        }
+      }
+    ],
+    "onTick": {
+      "name": "PetSettingsGUIWhileThisGUIIsOpenTick"
+    },
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

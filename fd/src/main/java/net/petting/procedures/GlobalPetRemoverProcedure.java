@@ -30,66 +30,43 @@ public class GlobalPetRemoverProcedure {
 			return;
 		String owner = "";
 		String pet = "";
+		String newiteritor = "";
+		String olditeritor = "";
 		owner = "";
 		{
 			String[] _array = PettingModVariables.MapVariables.get(world).petdelete.split(Pattern.quote(","));
 			if (_array.length != 0) {
 				for (String stringiterator : _array) {
 					if (stringiterator.contains(entity.getStringUUID())) {
-						owner = "";
-						pet = "";
-						{
-							String[] _array = stringiterator.split(Pattern.quote("--"));
-							if (_array.length != 0) {
-								for (String stringiterator : _array) {
-									if ((owner).equals("")) {
-										owner = stringiterator;
-									} else {
-										pet = stringiterator;
-									}
-								}
-							} else {
-								String stringiterator = stringiterator;
-								for (int _yourmother = 0; _yourmother < 1; _yourmother++) {
-									if ((owner).equals("")) {
-										owner = stringiterator;
-									} else {
-										pet = stringiterator;
-									}
-								}
-							}
-						}
-						break;
+						newiteritor = stringiterator;
 					}
 				}
 			} else {
 				String stringiterator = PettingModVariables.MapVariables.get(world).petdelete;
 				for (int _yourmother = 0; _yourmother < 1; _yourmother++) {
 					if (stringiterator.contains(entity.getStringUUID())) {
-						owner = "";
-						pet = "";
-						{
-							String[] _array = stringiterator.split(Pattern.quote("--"));
-							if (_array.length != 0) {
-								for (String stringiterator : _array) {
-									if ((owner).equals("")) {
-										owner = stringiterator;
-									} else {
-										pet = stringiterator;
-									}
-								}
-							} else {
-								String stringiterator = stringiterator;
-								for (int _yourmother = 0; _yourmother < 1; _yourmother++) {
-									if ((owner).equals("")) {
-										owner = stringiterator;
-									} else {
-										pet = stringiterator;
-									}
-								}
-							}
-						}
-						break;
+						newiteritor = stringiterator;
+					}
+				}
+			}
+		}
+		{
+			String[] _array = newiteritor.split(Pattern.quote("--"));
+			if (_array.length != 0) {
+				for (String stringiterator : _array) {
+					if ((owner).equals("")) {
+						owner = stringiterator;
+					} else {
+						pet = stringiterator;
+					}
+				}
+			} else {
+				String stringiterator = newiteritor;
+				for (int _yourmother = 0; _yourmother < 1; _yourmother++) {
+					if ((owner).equals("")) {
+						owner = stringiterator;
+					} else {
+						pet = stringiterator;
 					}
 				}
 			}

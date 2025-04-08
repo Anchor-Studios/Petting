@@ -20,6 +20,7 @@ public class PettingModGameRules {
 	public static GameRules.Key<GameRules.IntegerValue> DEFAULT_FOLLOW_DISTANCE;
 	public static GameRules.Key<GameRules.IntegerValue> DEFAULT_TELEPORT_DISTANCE;
 	public static GameRules.Key<GameRules.IntegerValue> DEFAULT_ATTACK_DISTANCE;
+	public static GameRules.Key<GameRules.BooleanValue> PETS_FRIENDLY_FIRE;
 
 	@SubscribeEvent
 	public static void registerGameRules(FMLCommonSetupEvent event) {
@@ -31,5 +32,6 @@ public class PettingModGameRules {
 		DEFAULT_FOLLOW_DISTANCE = GameRules.register("defaultFollowDistance", GameRules.Category.MOBS, GameRules.IntegerValue.create(6));
 		DEFAULT_TELEPORT_DISTANCE = GameRules.register("defaultTeleportDistance", GameRules.Category.MOBS, GameRules.IntegerValue.create(13));
 		DEFAULT_ATTACK_DISTANCE = GameRules.register("defaultAttackDistance", GameRules.Category.MOBS, GameRules.IntegerValue.create(32));
+		PETS_FRIENDLY_FIRE = GameRules.register("petsFriendlyFire", GameRules.Category.MOBS, GameRules.BooleanValue.create(false));
 	}
 }

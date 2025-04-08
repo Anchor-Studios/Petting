@@ -1,0 +1,302 @@
+{
+  "_fv": 77,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 94,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_petname",
+          "text": {
+            "fixedValue": "PetName",
+            "name": "ReturnPetNick"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 131,
+          "y": 78,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_attacksectionclose",
+          "image": "attacksectionclose.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "OpenAttackSettings"
+          },
+          "x": 180,
+          "y": 44,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_infosectionclose",
+          "image": "infosectionclose.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "OpenPetSettings"
+          },
+          "x": 126,
+          "y": 44,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "followsectionopen.png",
+          "use1Xscale": false,
+          "x": 153,
+          "y": 45,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_follow_owner",
+          "text": {
+            "fixedValue": "Follow owner"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 148,
+          "y": 96,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_teleport_owner",
+          "text": {
+            "fixedValue": "Teleport owner"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 148,
+          "y": 131,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_follow_distance",
+          "text": {
+            "fixedValue": "Follow distance"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 132,
+          "y": 112,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_teleport_distance",
+          "text": {
+            "fixedValue": "Teleport distance"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 132,
+          "y": 148,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_plus_ico",
+          "image": "plus_ico.png",
+          "hoveredImage": "plus_ico_hold.png",
+          "onClick": {
+            "name": "IncreaseFollowDistance"
+          },
+          "x": 215,
+          "y": 111,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_plus_ico1",
+          "image": "plus_ico.png",
+          "hoveredImage": "plus_ico_hold.png",
+          "onClick": {
+            "name": "IncreaseTeleportDistance"
+          },
+          "x": 225,
+          "y": 147,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_minus_ico",
+          "image": "minus_ico.png",
+          "hoveredImage": "minus_ico_hold.png",
+          "onClick": {
+            "name": "DecreaseFollowDistance"
+          },
+          "x": 228,
+          "y": 111,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_cross_ico1",
+          "image": "cross_ico.png",
+          "hoveredImage": "cross_ico_hold.png",
+          "onClick": {
+            "name": "ToggleFollowOwner"
+          },
+          "displayCondition": {
+            "name": "ReturnNotFollowOwner"
+          },
+          "x": 132,
+          "y": 93,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_minus_ico1",
+          "image": "minus_ico.png",
+          "hoveredImage": "minus_ico_hold.png",
+          "onClick": {
+            "name": "DecreaseTeleportDistance"
+          },
+          "x": 238,
+          "y": 147,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_cross_ico",
+          "image": "cross_ico.png",
+          "hoveredImage": "cross_ico_hold.png",
+          "onClick": {
+            "name": "ToggleTeleportOwner"
+          },
+          "displayCondition": {
+            "name": "ReturnNotTeleportOwner"
+          },
+          "x": 132,
+          "y": 128,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_tick_ico1",
+          "image": "tick_ico.png",
+          "hoveredImage": "tick_ico_hold.png",
+          "onClick": {
+            "name": "ToggleTeleportOwner"
+          },
+          "displayCondition": {
+            "name": "ReturnTeleportOwner"
+          },
+          "x": 132,
+          "y": 128,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_tick_ico",
+          "image": "tick_ico.png",
+          "hoveredImage": "tick_ico_hold.png",
+          "onClick": {
+            "name": "ToggleFollowOwner"
+          },
+          "displayCondition": {
+            "name": "ReturnFollowOwner"
+          },
+          "x": 132,
+          "y": 93,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_pet_follow_distance",
+          "text": {
+            "fixedValue": "Current: 10000",
+            "name": "ReturnPetFollowDistance"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 244,
+          "y": 112,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_1000",
+          "text": {
+            "fixedValue": "1000+",
+            "name": "ReturnPetTeleportDistance"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 254,
+          "y": 148,
+          "locked": false
+        }
+      }
+    ],
+    "onTick": {
+      "name": "PetSettingsGUIWhileThisGUIIsOpenTick"
+    },
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

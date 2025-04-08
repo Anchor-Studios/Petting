@@ -1,0 +1,12 @@
+{
+  "_fv": 77,
+  "_type": "gamerule",
+  "definition": {
+    "type": "Logic",
+    "displayName": "Pets Friendly Fire",
+    "description": "If false, pets of same player tamed with Golden Wheat won't attack each other.",
+    "category": "MOBS",
+    "defaultValueLogic": false,
+    "defaultValueNumber": 0
+  }
+}

@@ -67,6 +67,7 @@ public class PettingModVariables {
 			PlayerVariables original = event.getOriginal().getData(PLAYER_VARIABLES);
 			PlayerVariables clone = new PlayerVariables();
 			clone.allowpeting = original.allowpeting;
+			clone.petsettingsuuid = original.petsettingsuuid;
 			if (!event.isWasDeath()) {
 			}
 			event.getEntity().setData(PLAYER_VARIABLES, clone);
@@ -207,17 +208,20 @@ public class PettingModVariables {
 
 	public static class PlayerVariables implements INBTSerializable<CompoundTag> {
 		public boolean allowpeting = true;
+		public String petsettingsuuid = "\"\"";
 
 		@Override
 		public CompoundTag serializeNBT(HolderLookup.Provider lookupProvider) {
 			CompoundTag nbt = new CompoundTag();
 			nbt.putBoolean("allowpeting", allowpeting);
+			nbt.putString("petsettingsuuid", petsettingsuuid);
 			return nbt;
 		}
 
 		@Override
 		public void deserializeNBT(HolderLookup.Provider lookupProvider, CompoundTag nbt) {
 			allowpeting = nbt.getBoolean("allowpeting");
+			petsettingsuuid = nbt.getString("petsettingsuuid");
 		}
 
 		public void syncPlayerVariables(Entity entity) {
