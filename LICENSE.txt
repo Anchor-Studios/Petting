@@ -1,0 +1,34 @@
+Copyright (C) 2025 Anchor Studios
+
+This mod is licensed under the following terms:
+
+1. Non-Commercial Use Only  
+You may use, modify, and redistribute this mod for personal or educational purposes, as long as no commercial profit is made from it.
+
+2. Credit Required  
+You must provide appropriate credit by mentioning "Anchor Studios" as the original creator in any public distribution, including modpacks and modified versions.  
+Credit must also include a link to at least one official distribution page:  
+- Modrinth: https://modrinth.com/mod/petting  
+- CurseForge: https://www.curseforge.com/minecraft/mc-mods/petting
+
+3. Modifications Allowed  
+You may create derivative works or modified versions of this mod. If redistributed, the modified version must clearly state the changes made and still credit the original author, including a link to one of the official mod pages listed above.
+
+4. Use in Modpacks  
+This mod may be included in public or private modpacks. If the modpack is monetized (e.g. via ad revenue, modpack hosting platforms, or sponsorships), that is allowed **only if** the modpack clearly includes multiple mods and is not just a renamed or repackaged version of this mod alone.  
+In all cases:  
+- Credit must be provided  
+- The credit must include a link to either the Modrinth or CurseForge page above  
+- The modpack must not present this mod as its sole content
+
+5. No Warranty  
+This mod is provided "as is", without warranty of any kind. Anchor Studios is not liable for any damages resulting from its use.
+
+6. No Unauthorized Rehosting  
+You are not allowed to upload or redistribute this mod, or any modified version of it, on any third-party websites or platforms without explicit written permission from Anchor Studios.  
+The official distribution platforms for this mod are:  
+- Modrinth: https://modrinth.com/mod/petting  
+- CurseForge: https://www.curseforge.com/minecraft/mc-mods/petting  
+Posting this mod or modified versions on unauthorized websites is strictly prohibited.
+
+To request special permissions beyond these terms, please contact Anchor Studios.
