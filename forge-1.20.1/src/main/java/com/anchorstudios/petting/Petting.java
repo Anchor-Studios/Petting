@@ -35,13 +35,18 @@ public class Petting {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
 
+    // Items
     public static final RegistryObject<Item> GOLDEN_WHEAT = ITEMS.register("golden_wheat",
             () -> new Item(new Item.Properties()));
 
+    public static final RegistryObject<Item> PETTING_TAB_ICON_ITEM = ITEMS.register("petting_tab",
+            () -> new Item(new Item.Properties()));
+
+    // Creative Tab
     public static final RegistryObject<CreativeModeTab> PETTING_TAB = CREATIVE_MODE_TABS.register("petting_tab",
             () -> CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup.petting_tab"))
-                    .icon(() -> new ItemStack(GOLDEN_WHEAT.get()))
+                    .icon(() -> new ItemStack(PETTING_TAB_ICON_ITEM.get()))
                     .displayItems((params, output) -> {
                         output.accept(GOLDEN_WHEAT.get());
                     })
