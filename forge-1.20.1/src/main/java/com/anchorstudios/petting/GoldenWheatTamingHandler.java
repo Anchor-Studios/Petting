@@ -59,10 +59,9 @@ public class GoldenWheatTamingHandler {
 
             player.getCooldowns().addCooldown(Petting.GOLDEN_WHEAT.get(), 6);
 
-            // Mark event success on server, so client will swing hand automatically
+            // Mark event success on server
             event.setCancellationResult(InteractionResult.SUCCESS);
         } else {
-            // Client side, do not do anything here, just accept server sync
             event.setCancellationResult(InteractionResult.PASS);
         }
 
