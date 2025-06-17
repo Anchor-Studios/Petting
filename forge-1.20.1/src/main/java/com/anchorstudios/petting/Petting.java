@@ -3,7 +3,10 @@ package com.anchorstudios.petting;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -11,6 +14,8 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.level.LevelEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -23,6 +28,8 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
+
+import java.util.UUID;
 
 @Mod(Petting.MODID)
 public class Petting {
@@ -87,4 +94,30 @@ public class Petting {
             LOGGER.info("Petting mod client setup");
         }
     }
+
+    @SubscribeEvent
+    public static void onWorldLoad(LevelEvent.Load event) {
+        if (!(event.getLevel() instanceof ServerLevel serverLevel)) return;
+
+        PetRegistry registry = PetRegistry.get(serverLevel);
+        registry.cleanup(serverLevel);
+    }
+
+    @SubscribeEvent
+    public static void onLivingDeath(LivingDeathEvent event) {
+        LivingEntity entity = event.getEntity();
+        if (entity.level().isClientSide) return;
+
+        CompoundTag tag = entity.getPersistentData();
+        if (tag.contains("PettingOwnerUUID")) {
+            UUID ownerUUID = tag.getUUID("PettingOwnerUUID");
+            UUID petUUID = entity.getUUID();
+
+            ServerLevel serverLevel = (ServerLevel) entity.level();
+            PetRegistry registry = PetRegistry.get(serverLevel);
+
+            registry.removePet(ownerUUID, petUUID);
+        }
+    }
+
 }

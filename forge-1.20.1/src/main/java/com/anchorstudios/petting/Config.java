@@ -46,7 +46,7 @@ public class Config {
                     .comment("Allow players to untame their pets?")
                     .define("allowUntaming", false);
 
-            petLimitPerPlayer = builder
+            petLimitPerPlayer = builder //WORKING
                     .comment("Maximum number of pets one player can have. Set to -1 for unlimited.")
                     .defineInRange("petLimitPerPlayer", -1, -1, Integer.MAX_VALUE);
 

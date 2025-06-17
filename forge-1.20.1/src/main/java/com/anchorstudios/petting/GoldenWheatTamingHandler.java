@@ -36,6 +36,16 @@ public class GoldenWheatTamingHandler {
 
         CompoundTag tag = entity.getPersistentData();
 
+        ServerLevel serverLevel = (ServerLevel) level;
+        PetRegistry registry = PetRegistry.get(serverLevel);
+
+        int petCount = registry.getPetCount(player.getUUID());
+        if (petCount >= Config.COMMON.petLimitPerPlayer.get() & !(Config.COMMON.petLimitPerPlayer.get() == -1)) {
+            event.setCanceled(true);
+            event.setCancellationResult(InteractionResult.FAIL);
+            return;
+        }
+
         if (tag.getBoolean(TAMED_TAG)) {
             if (!Config.COMMON.allowRetaming.get()) {
                 event.setCanceled(true);
@@ -60,6 +70,11 @@ public class GoldenWheatTamingHandler {
             tag.putBoolean(TAMED_TAG, true);
             tag.putUUID("PettingOwnerUUID", player.getUUID());
             tag.putString("PettingOwnerName", player.getDisplayName().getString());
+
+            UUID playerUUID = player.getUUID();
+            UUID petUUID = target.getUUID();
+
+            registry.addPet(playerUUID, petUUID);
 
             if (Config.COMMON.showPetOwnershipName.get()) {
                 target.setCustomName(newName);
