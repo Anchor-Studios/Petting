@@ -15,6 +15,8 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
+import java.util.UUID;
+
 
 @Mod.EventBusSubscriber(modid = Petting.MODID)
 public class GoldenWheatTamingHandler {
@@ -35,9 +37,18 @@ public class GoldenWheatTamingHandler {
         CompoundTag tag = entity.getPersistentData();
 
         if (tag.getBoolean(TAMED_TAG)) {
-            event.setCanceled(true);
-            event.setCancellationResult(InteractionResult.FAIL);
-            return;
+            if (!Config.COMMON.allowRetaming.get()) {
+                event.setCanceled(true);
+                event.setCancellationResult(InteractionResult.FAIL);
+                return;
+            } else if (tag.contains("PettingOwnerUUID")) {
+                UUID ownerUUID = tag.getUUID("PettingOwnerUUID");
+                if (player.getUUID().equals(ownerUUID)) {
+                    event.setCanceled(true);
+                    event.setCancellationResult(InteractionResult.FAIL);
+                    return;
+                }
+            }
         }
 
         if (!level.isClientSide) {
@@ -45,9 +56,15 @@ public class GoldenWheatTamingHandler {
             String playerName = player.getDisplayName().getString();
             String oldName = target.getDisplayName().getString();
             Component newName = Component.literal(playerName + "'s " + oldName);
-            target.setCustomName(newName);
 
             tag.putBoolean(TAMED_TAG, true);
+            tag.putUUID("PettingOwnerUUID", player.getUUID());
+            tag.putString("PettingOwnerName", player.getDisplayName().getString());
+
+            if (Config.COMMON.showPetOwnershipName.get()) {
+                target.setCustomName(newName);
+                tag.putString("PettingCustomName", playerName + "'s " + oldName);
+            }
 
             ((ServerLevel) level).sendParticles(ParticleTypes.HEART,
                     entity.getX(), entity.getY() + 1.0D, entity.getZ(),
