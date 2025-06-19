@@ -70,6 +70,8 @@ public class Petting {
 
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(new GoldenWheatTamingHandler());
+        MinecraftForge.EVENT_BUS.register(new ServerTickHandler());
+        MinecraftForge.EVENT_BUS.register(new PetPersistenceHandler());
         modEventBus.addListener(this::addCreative);
     }
 
