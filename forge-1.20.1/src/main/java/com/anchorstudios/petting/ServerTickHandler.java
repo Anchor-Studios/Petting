@@ -34,8 +34,8 @@ public class ServerTickHandler {
 
         MinecraftServer server = event.getServer();
         for (ServerLevel level : server.getAllLevels()) {
-            PetRegistry registry = PetRegistry.get(level);
-            registry.cleanup(level);
+            PetRegistry registry = new PetRegistry(level);
+            registry.cleanup();
         }
     }
 }

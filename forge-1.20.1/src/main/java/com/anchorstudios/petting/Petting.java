@@ -7,6 +7,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -15,6 +16,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.level.LevelEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -72,6 +74,7 @@ public class Petting {
         MinecraftForge.EVENT_BUS.register(new GoldenWheatTamingHandler());
         MinecraftForge.EVENT_BUS.register(new ServerTickHandler());
         MinecraftForge.EVENT_BUS.register(new PetPersistenceHandler());
+        MinecraftForge.EVENT_BUS.register(new PlayerEventHandler());
         modEventBus.addListener(this::addCreative);
     }
 
@@ -101,25 +104,20 @@ public class Petting {
     public static void onWorldLoad(LevelEvent.Load event) {
         if (!(event.getLevel() instanceof ServerLevel serverLevel)) return;
 
-        PetRegistry registry = PetRegistry.get(serverLevel);
-        registry.cleanup(serverLevel);
+        PetRegistry registry = new PetRegistry(serverLevel);
+        registry.cleanup();
     }
 
     @SubscribeEvent
-    public static void onLivingDeath(LivingDeathEvent event) {
-        LivingEntity entity = event.getEntity();
-        if (entity.level().isClientSide) return;
+    public static void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
+        if (event.getEntity().level().isClientSide) return;
 
-        CompoundTag tag = entity.getPersistentData();
-        if (tag.contains("PettingOwnerUUID")) {
-            UUID ownerUUID = tag.getUUID("PettingOwnerUUID");
-            UUID petUUID = entity.getUUID();
+        Player player = (Player) event.getEntity();
+        ServerLevel serverLevel = (ServerLevel) player.level();
+        PetRegistry registry = new PetRegistry(serverLevel);
 
-            ServerLevel serverLevel = (ServerLevel) entity.level();
-            PetRegistry registry = PetRegistry.get(serverLevel);
-
-            registry.removePet(ownerUUID, petUUID);
-        }
+        registry.cleanupPlayerPets(player.getUUID());
+        LOGGER.debug("Cleaned up pets for player {}", player.getUUID());
     }
 
 }

@@ -38,7 +38,7 @@ public class GoldenWheatTamingHandler {
         }
 
         CompoundTag tag = entity.getPersistentData();
-        PetRegistry registry = PetRegistry.get(serverLevel);
+        PetRegistry registry = new PetRegistry(serverLevel);
         if (registry == null) {
             event.setCanceled(true);
             event.setCancellationResult(InteractionResult.FAIL);
@@ -73,11 +73,10 @@ public class GoldenWheatTamingHandler {
         tag.putUUID("PettingOwnerUUID", player.getUUID());
         tag.putString("PettingOwnerName", playerName);
 
-        registry.addPet(player.getUUID(), target.getUUID());
+        registry.addPet(player, target);
 
         if (Config.COMMON.showPetOwnershipName.get()) {
             target.setCustomName(newName);
-            tag.putString("PettingCustomName", newName.getString());
         }
 
         serverLevel.sendParticles(ParticleTypes.HEART,

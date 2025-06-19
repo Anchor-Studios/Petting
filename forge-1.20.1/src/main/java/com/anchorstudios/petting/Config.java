@@ -41,7 +41,7 @@ public class Config {
 
             areaDamageHitsPlayers = builder
                     .comment("Can tamed pets damage players with area damage?")
-                    .define("areaDamageHitsPlayers", true);
+                    .define("areaDamageHitsPlayers", false);
 
             allowUntaming = builder
                     .comment("Allow players to untame their pets?")

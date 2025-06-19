@@ -1,113 +1,149 @@
 package com.anchorstudios.petting;
 
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
-import net.minecraft.nbt.Tag;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.level.saveddata.SavedData;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
 
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
-public class PetRegistry extends SavedData {
-    private final Map<UUID, Set<UUID>> playerPets = new HashMap<>(); // Changed to Set to prevent duplicates
+public class PetRegistry {
+    private static final Gson GSON = new GsonBuilder()
+            .setPrettyPrinting()
+            .disableHtmlEscaping()
+            .create();
 
-    public static final String FILE_ID = "petting_pet_registry";
+    private static final String FILE_NAME = "pets.json";
+    private final Path savePath;
+    private final ServerLevel level;
 
-    public static PetRegistry get(ServerLevel level) {
-        return level.getDataStorage().computeIfAbsent(
-                tag -> new PetRegistry(tag),
-                PetRegistry::new,
-                FILE_ID
-        );
+    private final Map<UUID, OwnerData> registry = new ConcurrentHashMap<>();
+
+    public PetRegistry(ServerLevel level) {
+        this.level = level;
+        this.savePath = level.getServer().getWorldPath(net.minecraft.world.level.storage.LevelResource.ROOT)
+                .resolve("petting").resolve(FILE_NAME);
+        load();
     }
 
-    public PetRegistry() {}
+    private static class OwnerData {
+        String ownerName;
+        Map<UUID, PetData> pets = new HashMap<>();
 
-    public PetRegistry(CompoundTag nbt) {
-        loadFromNBT(nbt);
-    }
-
-    @Override
-    public CompoundTag save(CompoundTag tag) {
-        ListTag players = new ListTag();
-        synchronized (playerPets) { // Thread-safety
-            for (Map.Entry<UUID, Set<UUID>> entry : playerPets.entrySet()) {
-                CompoundTag playerTag = new CompoundTag();
-                playerTag.putUUID("Owner", entry.getKey());
-
-                ListTag petList = new ListTag();
-                for (UUID pet : entry.getValue()) {
-                    CompoundTag petTag = new CompoundTag();
-                    petTag.putUUID("Pet", pet);
-                    petList.add(petTag);
-                }
-
-                playerTag.put("Pets", petList);
-                players.add(playerTag);
-            }
-        }
-        tag.put("Registry", players);
-        return tag;
-    }
-
-    private void loadFromNBT(CompoundTag tag) {
-        playerPets.clear();
-        if (!tag.contains("Registry", Tag.TAG_LIST)) return;
-
-        ListTag players = tag.getList("Registry", Tag.TAG_COMPOUND);
-        for (Tag t : players) {
-            CompoundTag playerTag = (CompoundTag) t;
-            if (!playerTag.hasUUID("Owner")) continue;
-
-            UUID owner = playerTag.getUUID("Owner");
-            Set<UUID> pets = new HashSet<>();
-
-            if (playerTag.contains("Pets", Tag.TAG_LIST)) {
-                ListTag petList = playerTag.getList("Pets", Tag.TAG_COMPOUND);
-                for (Tag pt : petList) {
-                    if (((CompoundTag) pt).hasUUID("Pet")) {
-                        pets.add(((CompoundTag) pt).getUUID("Pet"));
-                    }
-                }
-            }
-
-            if (!pets.isEmpty()) {
-                playerPets.put(owner, pets);
-            }
+        OwnerData(String ownerName) {
+            this.ownerName = ownerName;
         }
     }
 
-    public synchronized void cleanup(ServerLevel level) {
-        playerPets.forEach((owner, pets) -> {
-            pets.removeIf(petUUID -> level.getEntity(petUUID) == null);
-        });
-        playerPets.entrySet().removeIf(entry -> entry.getValue().isEmpty());
-        setDirty();
+    private static class PetData {
+        String petName;
+        String petType;
+
+        PetData(String petName, String petType) {
+            this.petName = petName;
+            this.petType = petType;
+        }
     }
 
-    public synchronized boolean addPet(UUID player, UUID pet) {
-        if (player == null || pet == null) return false;
-        boolean added = playerPets.computeIfAbsent(player, k -> new HashSet<>()).add(pet);
-        if (added) setDirty();
-        return added;
+    private void load() {
+        try {
+            if (!Files.exists(savePath)) {
+                Files.createDirectories(savePath.getParent());
+                return;
+            }
+
+            String json = Files.readString(savePath);
+            Type type = new com.google.gson.reflect.TypeToken<Map<UUID, OwnerData>>(){}.getType();
+            Map<UUID, OwnerData> loaded = GSON.fromJson(json, type);
+
+            if (loaded != null) {
+                registry.clear();
+                registry.putAll(loaded);
+            }
+        } catch (IOException e) {
+        }
     }
 
-    public synchronized boolean removePet(UUID player, UUID pet) {
-        if (player == null || pet == null) return false;
-        Set<UUID> pets = playerPets.get(player);
-        if (pets != null && pets.remove(pet)) {
-            if (pets.isEmpty()) playerPets.remove(player);
-            setDirty();
+    private void save() {
+        try {
+            Files.createDirectories(savePath.getParent());
+            Files.writeString(savePath, GSON.toJson(registry));
+        } catch (IOException e) {
+        }
+    }
+
+    public boolean addPet(Player player, Entity pet) {
+        UUID playerId = player.getUUID();
+        UUID petId = pet.getUUID();
+
+        OwnerData ownerData = registry.computeIfAbsent(playerId,
+                k -> new OwnerData(player.getScoreboardName()));
+
+        if (ownerData.pets.containsKey(petId)) {
+            return false; // Pet already registered
+        }
+
+        ownerData.pets.put(petId, new PetData(
+                pet.getDisplayName().getString(),
+                pet.getType().getDescription().getString()
+        ));
+
+        save();
+        return true;
+    }
+
+    public boolean removePet(UUID playerId, UUID petId) {
+        OwnerData ownerData = registry.get(playerId);
+        if (ownerData != null && ownerData.pets.remove(petId) != null) {
+            if (ownerData.pets.isEmpty()) {
+                registry.remove(playerId);
+            }
+            save();
             return true;
         }
         return false;
     }
 
-    public synchronized int getPetCount(UUID player) {
-        return playerPets.getOrDefault(player, Collections.emptySet()).size();
+    public void cleanupPlayerPets(UUID playerId) {
+        OwnerData ownerData = registry.get(playerId);
+        if (ownerData != null) {
+            ownerData.pets.keySet().removeIf(petId ->
+                    level.getEntity(petId) == null
+            );
+            if (ownerData.pets.isEmpty()) {
+                registry.remove(playerId);
+            }
+            save();
+        }
     }
 
-    public synchronized boolean isRegisteredPet(UUID petUUID) {
-        return playerPets.values().stream().anyMatch(set -> set.contains(petUUID));
+    public void cleanup() {
+        registry.forEach((playerId, ownerData) -> {
+            ownerData.pets.keySet().removeIf(petId ->
+                    level.getEntity(petId) == null
+            );
+        });
+        registry.entrySet().removeIf(entry -> entry.getValue().pets.isEmpty());
+        save();
+    }
+
+    public int getPetCount(UUID playerId) {
+        OwnerData ownerData = registry.get(playerId);
+        return ownerData != null ? ownerData.pets.size() : 0;
+    }
+
+    public boolean isRegisteredPet(UUID petId) {
+        return registry.values().stream()
+                .anyMatch(ownerData -> ownerData.pets.containsKey(petId));
+    }
+
+    public String getRegistryJson() {
+        return GSON.toJson(registry);
     }
 }
