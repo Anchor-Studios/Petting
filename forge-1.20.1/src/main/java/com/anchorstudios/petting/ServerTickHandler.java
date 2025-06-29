@@ -32,6 +32,11 @@ public class ServerTickHandler {
         if (tickCounter < cleanupInterval) return;
         tickCounter = 0;
 
+        event.getServer().getAllLevels().forEach(level -> {
+            PetRegistry registry = new PetRegistry((ServerLevel) level);
+            registry.periodicCleanup();
+        });
+
         MinecraftServer server = event.getServer();
         for (ServerLevel level : server.getAllLevels()) {
             PetRegistry registry = new PetRegistry(level);

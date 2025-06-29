@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.level.LevelEvent;
@@ -75,7 +76,9 @@ public class Petting {
         MinecraftForge.EVENT_BUS.register(new ServerTickHandler());
         MinecraftForge.EVENT_BUS.register(new PetPersistenceHandler());
         MinecraftForge.EVENT_BUS.register(new PlayerEventHandler());
+        MinecraftForge.EVENT_BUS.register(new TamedMobBehavior());
         modEventBus.addListener(this::addCreative);
+        modEventBus.addListener(this::commonSetup);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -117,7 +120,26 @@ public class Petting {
         PetRegistry registry = new PetRegistry(serverLevel);
 
         registry.cleanupPlayerPets(player.getUUID());
+        registry.reinitializePetsForPlayer(player);
         LOGGER.debug("Cleaned up pets for player {}", player.getUUID());
     }
 
+    @SubscribeEvent
+    public static void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {
+        if (!event.getEntity().level().isClientSide()) {
+            ServerLevel level = (ServerLevel) event.getEntity().level();
+            PetRegistry registry = new PetRegistry(level);
+
+            registry.reinitializePetsForPlayer(event.getEntity());
+        }
+    }
+
+    @SubscribeEvent
+    public static void onLivingDeath(LivingDeathEvent event) {
+        if (event.getEntity() instanceof Player player && !player.level().isClientSide()) {
+            // Clean up dead pets when owner dies
+            PetRegistry registry = new PetRegistry((ServerLevel) player.level());
+            registry.cleanupPlayerPets(player.getUUID());
+        }
+    }
 }

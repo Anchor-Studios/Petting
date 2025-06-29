@@ -2,8 +2,10 @@ package com.anchorstudios.petting;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.player.Player;
 
 import java.io.IOException;
@@ -113,9 +115,17 @@ public class PetRegistry {
     public void cleanupPlayerPets(UUID playerId) {
         OwnerData ownerData = registry.get(playerId);
         if (ownerData != null) {
-            ownerData.pets.keySet().removeIf(petId ->
-                    level.getEntity(petId) == null
-            );
+            ownerData.pets.keySet().removeIf(petId -> {
+                Entity pet = level.getEntity(petId);
+                if (pet == null) return true;
+
+                // Check if pet is still tamed
+                CompoundTag tag = pet.getPersistentData();
+                return !tag.getBoolean(GoldenWheatTamingHandler.TAMED_TAG) ||
+                        !tag.hasUUID("PettingOwnerUUID") ||
+                        !tag.getUUID("PettingOwnerUUID").equals(playerId);
+            });
+
             if (ownerData.pets.isEmpty()) {
                 registry.remove(playerId);
             }
@@ -123,14 +133,37 @@ public class PetRegistry {
         }
     }
 
+    public void reinitializePetsForPlayer(Player player) {
+        OwnerData ownerData = registry.get(player.getUUID());
+        if (ownerData != null) {
+            ownerData.pets.keySet().forEach(petId -> {
+                Entity pet = level.getEntity(petId);
+                if (pet instanceof Mob mob) {
+                    TamedMobBehavior.setupTamedBehavior(mob);
+                }
+            });
+        }
+    }
+
     public void cleanup() {
         registry.forEach((playerId, ownerData) -> {
-            ownerData.pets.keySet().removeIf(petId ->
-                    level.getEntity(petId) == null
-            );
+            ownerData.pets.keySet().removeIf(petId -> {
+                Entity pet = level.getEntity(petId);
+                if (pet == null) return true;
+
+                // Check if pet is still alive and tamed
+                return !pet.isAlive() ||
+                        !pet.getPersistentData().getBoolean(GoldenWheatTamingHandler.TAMED_TAG);
+            });
         });
         registry.entrySet().removeIf(entry -> entry.getValue().pets.isEmpty());
         save();
+    }
+
+    public void periodicCleanup() {
+        level.getServer().execute(() -> {
+            cleanup();
+        });
     }
 
     public int getPetCount(UUID playerId) {
