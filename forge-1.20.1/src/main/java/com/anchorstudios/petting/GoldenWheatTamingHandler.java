@@ -42,9 +42,13 @@ public class GoldenWheatTamingHandler {
             event.setCancellationResult(InteractionResult.PASS);
             return;
         }
-
         CompoundTag tag = entity.getPersistentData();
         PetRegistry registry = new PetRegistry(serverLevel);
+
+        if (event.getEntity() != null && !player.level().isClientSide()) {
+            registry.cleanupPlayerPets(player.getUUID());
+        }
+
         if (registry == null) {
             event.setCanceled(true);
             event.setCancellationResult(InteractionResult.FAIL);
